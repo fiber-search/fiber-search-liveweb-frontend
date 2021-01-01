@@ -63,3 +63,7 @@ body {
 #search-input:active {
     background-color: var(--white-3);
 }
+
+#result-list>a {
+    display: block;
+}
