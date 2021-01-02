@@ -1,5 +1,6 @@
 const CONFIG = {
     BACKEND: 'http://localhost:48534',
+    REALTIME_SEARCH: true,
 };
 
 class El {
@@ -48,7 +49,11 @@ function submitSearch(keyword) {
             var searchResult = JSON.parse(req.responseText);
             if (searchResult.status == "success") {
                 searchResult.result.forEach((item) => {
-                    resultList.appendChild(new El("a", { "href": item.url }, null, item.url).element);
+                    resultList.appendChild(
+                        new El("div", { "class": "result-list-item" }, null,
+                            new El("a", { "href": item.url, "target": "_blank" }, null, item.title ? item.title : item.url).element
+                        ).element
+                    );
                 })
             }
         }
@@ -56,7 +61,9 @@ function submitSearch(keyword) {
 }
 
 searchInput.addEventListener('keypress', (ev) => {
-    if (ev.code = 'Enter') {
+    if (CONFIG.REALTIME_SEARCH) {
+        submitSearch(ev.target.value);
+    } else if (ev.code == 'Enter') {
         submitSearch(ev.target.value);
     }
 })
