@@ -50,9 +50,10 @@ function submitSearch(keyword) {
             if (searchResult.status == "success") {
                 searchResult.result.forEach((item) => {
                     resultList.appendChild(
-                        new El("div", { "class": "result-list-item" }, null,
-                            new El("a", { "href": item.url, "target": "_blank" }, null, item.title ? item.title : item.url).element
-                        ).element
+                        new El("div", { "class": "result-list-item" }, null, [
+                            new El("a", { "href": item.url, "target": "_blank", "class": "title" }, null, item.title ? item.title : item.url).element,
+                            new El("a", { "href": item.url, "target": "_blank", "class": "url" }, null, item.url).element,
+                        ]).element
                     );
                 })
             }

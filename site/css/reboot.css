@@ -108,3 +108,19 @@ a:visited {
     border-bottom: 1px solid var(--white-2);
     padding: 16px;
 }
+
+.result-list-item>* {
+    display: block;
+}
+
+.result-list-item .title {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.result-list-item .url {
+    margin-top: 8px;
+    color: var(--white-4);
+    font-family: 'JetBrains Mono', 'Consolas', 'Courier New', Courier, monospace;
+    font-size: 12px;
+}
