@@ -41,7 +41,7 @@ var resultList = document.getElementById("result-list");
 
 function submitSearch(keyword) {
     var req = new XMLHttpRequest();
-    req.open("GET", `${CONFIG.BACKEND}/?type=s&s=${keyword}`);
+    req.open("POST", `${CONFIG.BACKEND}/?type=s&s=${keyword}`);
     req.send();
     req.onreadystatechange = (ev) => {
         if (req.readyState == 4 && req.status == 200) {
