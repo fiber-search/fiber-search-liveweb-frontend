@@ -5,6 +5,7 @@
     --white-4: rgb(189, 191, 192);
     --black: rgb(1, 16, 29);
     --link: #06c;
+    --border-color: rgba(128, 128, 128, 0.125);
 }
 
 @media( prefers-color-scheme: dark) {
@@ -15,6 +16,7 @@
         --white-4: rgb(80, 84, 86);
         --black: rgb(181, 200, 216);
         --link: #5fafff;
+        --border-color: rgba(128, 128, 128, 0.125);
     }
 }
 
@@ -60,6 +62,7 @@ a:visited {
 
 .title {
     margin: 0;
+    margin-top: 16px;
 }
 
 #search-input {
@@ -74,6 +77,7 @@ a:visited {
     width: 512px;
     padding: 8px;
     border-radius: 8px;
+    border: 1px solid transparent;
     transition: all .15s;
 }
 
@@ -90,11 +94,7 @@ a:visited {
 }
 
 #search-input:hover, #search-input:focus {
-    background-color: var(--white-2);
-}
-
-#search-input:active {
-    background-color: var(--white-3);
+    border-color: var(--white-2);
 }
 
 #result-list {
